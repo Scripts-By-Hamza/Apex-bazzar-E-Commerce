@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>APEX BAZAAR</title>
+</head>
+
+<body>
+    <header>
+        <div class="alert-style d-flex" role="alert">
+            APEX BAAZAR DISCOUNT -20% OFF
+        </div>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <label class="logo">APEX BAZAAR</label>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="fabrics.html" class="active">SHOP</a></li>
+                <li><span class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            CATEGORIES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#newCollections-section">MEN'S WEAR</a></li>
+                            <li><a class="dropdown-item" href="#womwn-wear">WOMEN'S WEAR</a></li>
+                            <li><a class="dropdown-item" href="#perfume-section">FRAGRANCES</a></li>
+                            <li><a class="dropdown-item" href="#wallet-section">ASSESSORIES</a></li>
+                            <li><a class="dropdown-item" href="#watch-section">WATCHES</a></li>
+                        </ul>
+                    </span></li>
+                <li><a href="care.html">CONTACT US</a></li>
+                <li><i class="fa-solid fa-cart-shopping nav-icon"></i></li>
+                <i class="fa-solid fa-user nav-icon"></i>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- PRODUCTS DISPLAY STARTS HERE -->
+    <section class="shop container-fluid">
+        <div class="container cart">
+            <h2 class="cart-header mt-2">Your Bag (2)</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-summary">
+                <h4>Order Summary</h4>
+                <div class="d-flex justify-content-between">
+                    <span>Price Incl. Tax</span>
+                    <span id="price-incl-tax">PKR 0</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span>Total</span>
+                    <span id="cart-total">PKR 0</span>
+                </div>
+                <button class="btn btn-outline-dark mt-3" id="continue-shopping" onclick="continueShopping()">Continue
+                    Shopping</button>
+                <button type="button" class="btn btn-dark mt-2" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Proceed to Checkout
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Proceed to Checkout</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="modal-container">
+                                    <form action="order-placed.html" method="GET" onsubmit="return validateForm()">
+                                        <div class="modal-section">
+                                            <h2>Enter Email</h2>
+                                            <input type="email" placeholder="Email" required id="email" name="email">
+                                        </div>
+
+                                        <div class="modal-section">
+                                            <h2>Shipping Details</h2>
+                                            <label for="formGroupExampleInput" class="form-label">First Name</label>
+                                            <input type="text" required class="form-control" id="first-name"
+                                                name="First-name">
+
+                                            <label for="formGroupExampleInput" class="form-label">Last Name</label>
+                                            <input type="text" required class="form-control" id="last-name"
+                                                name="last-name">
+
+                                            <label for="formGroupExampleInput" class="form-label">Phone Number</label>
+                                            <input type="text" required class="form-control" id="phone-number"
+                                                name="phone-number">
+
+                                            <label for="formGroupExampleInput" class="form-label">Adress</label>
+                                            <input type="text" required class="form-control" id="Adress" name="Adress">
+
+                                            <select required>
+                                                <option value="">Select Your City</option>
+                                                <option value="1">Karachi</option>
+                                                <option value="2">Lahore</option>
+                                                <option value="3">Hyderabad</option>
+                                                <option value="4">Multan</option>
+                                                <option value="5">Okara</option>
+                                                <option value="6">Faislabad</option>
+                                                <option value="7">Sailkot</option>
+                                                <option value="8">Islamabad</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="submit" class="btn btn-dark form-control" id="b1" name="b1"
+                                                value="Click Here To Submit">
+                                        </div>
+                                    </form>
+
+                                    <!-- <div class="bag">
+                                        <img src="path/to/image.jpg" alt="Floral Bloom">
+                                        <div>
+                                            <p>Floral Bloom</p>
+                                            <p>PKR 1,500</p>
+                                            <p>Size: 250ML</p>
+                                            <p>Qty: 1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="voucher">
+                                        <input type="text" placeholder="Enter Code">
+                                        <button class="btn">Apply</button>
+                                    </div>
+
+                                    <div class="order-summary">
+                                        <p>Price incl. tax: PKR 1,500</p>
+                                        <p>Shipping: PKR 0.00</p>
+                                        <a href="#" class="btn-payment" onclick="orderPlaced()">Proceed to
+                                            Payment</a>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="fabrics-section">
+
+
+            <h2 class="section-title mt-2" id="womwn-wear"></h2>
+            <div class="container-fluid mt-2 display-product">
+                <div class="row">
+
+                    <!-- Product No 01 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 01.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(1)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product No 02 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 02.jpg" class="card-img-top" alt="Product 1">
+                        </div>
+                    </div>
+                    <!-- Product No 03 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 03.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 2,900</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(3)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product No 04 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 04.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 5,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(4)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 05 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 05.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(5)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 06 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 06.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(6)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 07 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 07.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 4,999</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(7)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 08 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 08.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 3,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(8)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 09 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 09.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 4,400</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(9)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 10 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 10.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 1,2000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(10)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 11 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 11.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(11)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 12 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 12.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(12)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 13 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 13.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(13)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 14 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 14.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(14)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 15 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 15.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(15)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 16 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 16.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,400</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(16)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 17 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 17.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">NAVY BLUE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(17)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 18 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 18.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">WHITE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(8)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 19 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 19.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN BLENDED KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(19)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product No 20 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 20.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BEIGE BLENDED KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(20)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 21 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 21.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">ROYAL BLUE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(21)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 22 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 22.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">WHITE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,700</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(22)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 23 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 23.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">GREY COTTON KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(23)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 24 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 24.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">VANDERHOOF - BLACK COTTON KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(24)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 25 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 25.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED KURTA</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(25)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 26 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 26.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED EXCLUSIVE KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(26)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 27 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 27.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">GREEN RAW SILK KURTA</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(27)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 28 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 28.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED KURTA</h5>
+                                <p class="card-text">PKR 5,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(28)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </section>
+
+        <section id="newCollections-section">
+            <h2 class="section-title mt-3">MEN'S WEAR</h2>
+            <div class="container-fluid mt-2 display-product">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 17.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">NAVY BLUE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(17)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 18 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 18.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">WHITE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(8)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 19 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 19.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN BLENDED KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(19)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product No 20 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 20.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BEIGE BLENDED KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(20)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 21 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 21.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">ROYAL BLUE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(21)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 22 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 22.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">WHITE BLENDED KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,700</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(22)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 23 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 23.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">GREY COTTON KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(23)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 24 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 24.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">VANDERHOOF - BLACK COTTON KAMEEZ SHALWAR</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(24)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 25 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 25.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED KURTA</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(25)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 26 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 26.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED EXCLUSIVE KAMEEZ SHALWAR </h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(26)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 27 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 27.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">GREEN RAW SILK KURTA</h5>
+                                <p class="card-text">PKR 4,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(27)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 28 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 28.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BLACK BLENDED KURTA</h5>
+                                <p class="card-text">PKR 5,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(28)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Product No 29 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 1.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Blouse | Embroidered</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(29)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 30 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 2.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Blouse</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(30)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 31 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 3.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Maxi Dress</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(31)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 32 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 4.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 4,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(32)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 33 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 5.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Shirt | Embroidered</h5>
+                                <p class="card-text">PKR 4,400</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(33)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 34 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 6.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Dobby | Embroidered</h5>
+                                <p class="card-text">PKR 3,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(34)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 35 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 7.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Dobby | Embroidered</h5>
+                                <p class="card-text">PKR 3,700</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(35)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Product No 36 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/newfabrics no 8.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 4,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(36)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Product No 01 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 01.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(1)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 02 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 02.jpg" class="card-img-top" alt="Product 1">
+                            <!-- <div class="card-body"> -->
+                            <!-- <h5 class="card-title"></h5> -->
+                            <!-- <p class="card-text"></p> -->
+                            <!-- <button class="btn btn-primary">Add to Cart</button> -->
+                            <!-- </div> -->
+
+                        </div>
+                    </div>
+                    <!-- Product No 03 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 03.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 2,900</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(3)"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Product No 04 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 04.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 5,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(4)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 05 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 05.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jacquard | Printed</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(5)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 06 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 06.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 5,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(6)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 07 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 07.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 4,999</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(7)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 08 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 08.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 3,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(8)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 09 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 09.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 4,400</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(9)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 10 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 10.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 1,2000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(10)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 11 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 11.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Messuri | Embroidered</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(11)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 12 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 12.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(12)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 13 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 13.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed/h5>
+                                    <p class="card-text">PKR 2,200</p>
+                                    <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(13)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 14 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 14.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(14)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 15 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 15.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(15)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 16 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/fabrics no 16.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lawn | Printed</h5>
+                                <p class="card-text">PKR 2,400</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(16)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product No 17 display -->
+
+                </div>
+            </div>
+            <br>
+        </section>
+
+        <section id="perfume-section">
+            <h2 class="section-title mt-2"></h2>
+            <div class="container-fluid mt-2 display-product">
+                <div class="row">
+
+                    <!-- Product No 01 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 1.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Body Mist | Fun Fair</h5>
+                                <p class="card-text">PKR 1,290</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(37)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 2.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">In all ways fresh and fruity</h5>
+                                <p class="card-text">PKR 3,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(38)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 3.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">fresh and fruity | oud legend</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(39)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 4.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Escape into a world</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(40)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 5.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">True royalty | Gulabi Queen</h5>
+                                <p class="card-text">PKR 3,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(41)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 6.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Capturing your bold side</h5>
+                                <p class="card-text">PKR 3,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(42)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 7.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Made for the getter in you</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(43)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/perfume no 8.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Lose yourself in the wood</h5>
+                                <p class="card-text">PKR 3,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(44)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </section>
+
+
+        <section id="wallet-section">
+            <h2 class="section-title mt-2"></h2>
+            <div class="container-fluid mt-2 display-product">
+                <div class="row">
+
+                    <!-- Product No 01 display -->
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/wallet no 01.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN LEATHER | WALLET</h5>
+                                <p class="card-text">PKR 1,500</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(45)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/wallet no 02.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN LEATHER | WALLET</h5>
+                                <p class="card-text">PKR 1,800</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(46)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/wallet no 03.webp" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN LEATHER | WALLET</h5>
+                                <p class="card-text">PKR 1,200</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(47)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="card mt-3">
+                            <img src="Photos/wallet no 04.jpg" class="card-img-top" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title">BROWN LEATHER | WALLET</h5>
+                                <p class="card-text">PKR 1,000</p>
+                                <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(48)"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- WATCHES SECTION -->
+            <section id="watch-section">
+                <div class="container-fluid display-product mt-2">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="card mt-3">
+                                <img src="Photos/watch no 1.webp" class="card-img-top" alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Infinity Smartwatch</h5>
+                                    <p class="card-text">PKR 7,999</p>
+                                    <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(49)"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card mt-3">
+                                <img src="Photos/watch no 2.webp" class="card-img-top" style="width: 93%;"
+                                    alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Luna Smart Watch</h5>
+                                    <p class="card-text">PKR 6,499</p>
+                                    <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(50)"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card mt-3">
+                                <img src="Photos/watch no 3.webp" class="card-img-top" style="width: 83%;"
+                                    alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Spark Smart Watch</h5>
+                                    <p class="card-text">PKR 6,999</p>
+                                    <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(51)"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card mt-3">
+                                <img src="Photos/watch no 4.webp" class="card-img-top" style="width: 83%;"
+                                    alt="Product 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pixel Smartwatch</h5>
+                                    <p class="card-text">PKR 8,999</p>
+                                    <i class="fa-solid fa-bag-shopping addcart" onclick="addToCart(52)"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <br>
+        </section>
+
+    </section>
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-3 mt-5">
+                    <span class="about-footer">HELP</span>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">Track Your
+                            Order</a></p>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">Terms &
+                            Conditions</a></p>
+                    <p class="footer-margin"><a class="footer-link" href="privacy.html">Privacy Policy</a>
+                    </p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 mt-5">
+                    <h5 class="about-footer">About Us</h5>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">About Us</a></p>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">Contact Us</a>
+                    </p>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">Blogs</a></p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 mt-5">
+                    <h5 class="about-footer">CUSTOMER SUPPORT</h5>
+                    <p class="footer-margin"><a class="footer-link" href="care.html">Customer Service</a>
+                    </p>
+                    <p class="footer-margin"><a class="footer-link" href="location.html">Store Locator</a>
+                    </p>
+                    <p class="footer-margin"><a class="footer-link" href="delivery.html">Delivery</a></p>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">Exchange</a></p>
+                    <p class="footer-margin"><a class="footer-link" href="footerlink.html">FAQs</a></p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3 mt-5">
+                    <h5 class="about-footer">Get In Touch</h5>
+                    <p class="footer-margin">+92 000 0000</p>
+                    <p class="footer-margin">info@gmail.com</p>
+                    <a href="https://www.instagram.com/hushedodyssey/" target="_blank"><button type="button"
+                            class="btn-footer">FOLLOW</button></a>
+                </div>
+            </div>
+            <hr>
+            <p class="footer-end">&#169;-2024 AH Developers</p>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+    <script>
+        const products = [
+            { id: 1, name: 'JACQUARD | PRINTED', price: 3500, image: 'Photos/fabrics no 01.jpg' },
+            { id: 2, name: 'Product 2', price: 4200, image: 'Photos/fabrics no 02.jpg' },
+            { id: 3, name: 'JACQUARD | PRINTED', price: 2900, image: 'Photos/fabrics no 03.jpg' },
+            { id: 4, name: 'JACQUARD | PRINTED', price: 5000, image: 'Photos/fabrics no 04.jpg' },
+            { id: 5, name: 'JACQUARD | PRINTED', price: 5500, image: 'Photos/fabrics no 05.jpg' },
+            { id: 6, name: 'LAWN | PRINTED', price: 5500, image: 'Photos/fabrics no 06.jpg' },
+            { id: 7, name: 'LAWN | PRINTED', price: 4999, image: 'Photos/fabrics no 07.jpg' },
+            { id: 8, name: 'LAWN | PRINTED', price: 3200, image: 'Photos/fabrics no 07.jpg' },
+            { id: 9, name: 'MESSURI | EMBROIDERED', price: 4400, image: 'Photos/fabrics no 09.jpg' },
+            { id: 10, name: 'MESSURI | EMBROIDERED', price: 17000, image: 'Photos/fabrics no 10.jpg' },
+            { id: 11, name: 'MESSURI | EMBROIDERED', price: 2200, image: 'Photos/fabrics no 11.jpg' },
+            { id: 12, name: 'LAWN | PRINTED', price: 2200, image: 'Photos/fabrics no 12.jpg' },
+            { id: 13, name: 'LAWN | PRINTED', price: 2200, image: 'Photos/fabrics no 13.jpg' },
+            { id: 14, name: 'LAWN | PRINTED', price: 2200, image: 'Photos/fabrics no 14.jpg' },
+            { id: 15, name: 'LAWN | PRINTED', price: 2500, image: 'Photos/fabrics no 15.webp' },
+            { id: 16, name: 'LAWN | PRINTED', price: 2400, image: 'Photos/fabrics no 16.webp' },
+            { id: 17, name: 'NAVY BLUE BLENDED KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 17.webp' },
+            { id: 18, name: 'WHITE BLENDED KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 18.webp' },
+            { id: 19, name: 'BROWN BLENDED KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 19.webp' },
+            { id: 20, name: 'BEIGE BLENDED KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 20.webp' },
+            { id: 21, name: 'ROYAL BLUE BLENDED KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 21.webp' },
+            { id: 22, name: 'WHITE BLENDED KAMEEZ SHALWAR ', price: 4700, image: 'Photos/fabrics no 22.webp' },
+            { id: 23, name: 'GREY COTTON KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 23.webp' },
+            { id: 24, name: 'VANDERHOOF - BLACK COTTON KAMEEZ SHALWAR', price: 4500, image: 'Photos/fabrics no 24.webp' },
+            { id: 25, name: 'BLACK BLENDED KURTA', price: 5500, image: 'Photos/fabrics no 25.webp' },
+            { id: 26, name: 'BLACK BLENDED EXCLUSIVE KAMEEZ SHALWAR ', price: 4500, image: 'Photos/fabrics no 26.webp' },
+            { id: 27, name: 'GREEN RAW SILK KURTA', price: 4500, image: 'Photos/fabrics no 27.webp' },
+            { id: 28, name: 'BLACK BLENDED KURTA', price: 5000, image: 'Photos/fabrics no 28.webp' },
+            { id: 29, name: 'BLOUSE| EMBROIDERED', price: 3500, size: 'Medium', image: 'Photos/newfabrics no 1.jpg' },
+            { id: 30, name: 'BLOUSE', price: 3500, size: 'Medium', image: 'Photos/newfabrics no 2.jpg' },
+            { id: 31, name: 'Maxi Dress', price: 3500, size: 'Medium', image: 'Photos/newfabrics no 3.jpg' },
+            { id: 32, name: 'JACQUARD | PRINTED', price: 4000, size: 'Medium', image: 'Photos/newfabrics no 4.jpg' },
+            { id: 33, name: 'SHIRT | EMBROIDERED', price: 4400, size: 'Medium', image: 'Photos/newfabrics no 5.webp' },
+            { id: 34, name: 'DOBBY | EMBROIDERED', price: 3200, size: 'Medium', image: 'Photos/newfabrics no 6.webp' },
+            { id: 35, name: 'DOBBY | EMBROIDERED', price: 3700, size: 'Medium', image: 'Photos/newfabrics no 7.jpg' },
+            { id: 36, name: 'LAWN | PRINTED', price: 4200, size: 'Medium', image: 'Photos/newfabrics no 8.jpg' },
+            { id: 37, name: 'BODY MIST', price: 1290, size: '20ML', image: 'Photos/perfume no 1.webp' },
+            { id: 38, name: 'IN ALL WAYS FRESH AND FRUITY', price: 3000, size: '35ML', image: 'Photos/perfume no 2.webp' },
+            { id: 39, name: 'FRESH AND FRUITY', price: 3500, size: '45ML', image: 'Photos/perfume no 3.webp' },
+            { id: 40, name: 'ESCAPE INTO A WORLD', price: 3500, size: '40ML', image: 'Photos/perfume no 4.webp' },
+            { id: 41, name: 'TRUE ROYALTY', price: 3000, size: '40ML', image: 'Photos/perfume no 5.webp' },
+            { id: 42, name: 'CAPTURING YOUR BOLD SIDE', price: 3200, size: '40ML', image: 'Photos/perfume no 6.webp' },
+            { id: 43, name: 'MADE FOR THE GETTER IN YOU', price: 3500, size: '60ML', image: 'Photos/perfume no 7.webp' },
+            { id: 44, name: 'LOSE YOURSELF IN THE WOOD', price: 3500, size: '80ML', image: 'Photos/perfume no 8.jpg' },
+            { id: 45, name: 'BROWN LEATHER | WALLET', price: 1500, size: '4X2', image: 'Photos/wallet no 01.jpg' },
+            { id: 46, name: 'BROWN LEATHER | WALLET', price: 1800, size: '5X3', image: 'Photos/wallet no 02.jpg' },
+            { id: 47, name: 'BROWN LEATHER | WALLET', price: 1200, size: '5X5', image: 'Photos/wallet no 03.webp' },
+            { id: 48, name: 'BROWN LEATHER | WALLET', price: 1000, size: '4X3', image: 'Photos/wallet no 04.jpg' },
+            { id: 49, name: 'INFINITY SMARTWATCH', price: 7999, size: '1.83in Display', image: 'Photos/watch no 1.webp' },
+            { id: 50, name: 'LUNA SAMRT WATCH', price: 6400, size: '1.39in Display', image: 'Photos/watch no 2.webp' },
+            { id: 51, name: 'SPARK SMART WATCH', price: 6999, size: '1.39in HD Display', image: 'Photos/watch no 3.webp' },
+            { id: 52, name: 'PIXEL SMART WATCH', price: 8999, size: '1.62in Display', image: 'Photos/watch no 4.webp' },
+
+        ];
+
+        const cart = [];
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const cartItem = cart.find(item => item.id === productId);
+                if (cartItem) {
+                    cartItem.quantity++;
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const priceInclTax = document.getElementById('price-incl-tax');
+            const cartTotal = document.getElementById('cart-total');
+            const cartHeader = document.querySelector('.cart-header');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.quantity * item.price;
+                total += itemTotal;
+
+                cartItems.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h5>${item.name}</h5>
+                    <p>PKR ${item.price.toFixed(2)}</p>
+                    <p>Size: ${item.size}</p>
+                    <p class="text-success">In Stock</p>
+                    <div class="cart-item-quantity">
+                        <button onclick="decreaseQuantity(${item.id})">-</button>
+                        <input type="number" min="1" value="${item.quantity}" class="form-control mx-2" onchange="updateQuantity(${item.id}, this.value)" style="width: 50px;">
+                        <button onclick="increaseQuantity(${item.id})">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-link text-danger" onclick="removeItem(${item.id})"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        `;
+            });
+
+            priceInclTax.textContent = `PKR ${total.toFixed(2)}`;
+            cartTotal.textContent = `PKR ${total.toFixed(2)}`;
+            cartHeader.textContent = `Your Bag (${cart.length})`;
+        }
+
+        function updateQuantity(id, quantity) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = parseInt(quantity);
+                updateCart();
+            }
+        }
+
+        function increaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity++;
+                updateCart();
+            }
+        }
+
+        function decreaseQuantity(id) {
+            const item = cart.find(item => item.id === id);
+            if (item && item.quantity > 1) {
+                item.quantity--;
+                updateCart();
+            }
+        }
+
+        function removeItem(id) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+            if (itemIndex !== -1) {
+                cart.splice(itemIndex, 1);
+                updateCart();
+            }
+        }
+
+        // Initial cart update
+        updateCart();
+
+
+        function validateForm() {
+            txtFirstName = document.getElementById("first-name")
+            txtLastName = document.getElementById("last-name")
+            numPhoneNumber = document.getElementById("phone-number")
+            if (parseInt(txtFirstName.value) <= 0) {
+                alert("First Name is missing ...")
+                return false
+            }
+            if (parseInt(txtLastName.value) <= 0) {
+                alert("Last Name is missing ...")
+                return false
+            }
+            if (parseInt(txtPhoneNumber.value) < 0) {
+                alert("Enter Phone Number ....")
+                return false
+            }
+            return true
+        }
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#continue-shopping").click(function () {
+                $(".cart").hide();
+            });
+            $(".fa-cart-shopping").click(function () {
+                $(".cart").toggle();
+            });
+            $(".addcart").click(function () {
+                $(".cart").show();
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
